@@ -285,18 +285,14 @@
     <Content Include="packages.config" />
     <Content Include="Partials\_GAEventTracking.cshtml" />
     <Content Include="Partials\_GoogleAnalytics.cshtml" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="Scripts\SendGaEvent.js" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Code\HtmlExtensions.cs" />
+    <Content Include="App_Code\EventService.cs" />
+    <Content Include="App_Code\Event.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
@@ -335,7 +331,8 @@
   <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /E /Y "$(ProjectDir)Partials\*.cshtml" "$(SolutionDir)Demo\Views\Partials"
-xcopy /E /Y "$(ProjectDir)App_Code\*.cs" "$(SolutionDir)Demo\App_Code"</PostBuildEvent>
+xcopy /E /Y "$(ProjectDir)App_Code\*.cs" "$(SolutionDir)Demo\App_Code"
+xcopy /E /Y "$(ProjectDir)Scripts\*.js" "$(SolutionDir)Demo\Scripts"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
