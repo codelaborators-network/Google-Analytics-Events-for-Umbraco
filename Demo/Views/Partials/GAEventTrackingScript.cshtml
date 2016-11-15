@@ -1,0 +1,37 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Archetype.Models
+
+
+@{ 
+    var homePage = Model.Content.AncestorOrSelf(1);
+    ArchetypeModel eventTracking = null;
+    if (homePage.HasProperty("eventTrackingSettings"))
+    {
+        eventTracking = homePage.GetPropertyValue<ArchetypeModel>("eventTrackingSettings");
+    }
+
+    <script>
+        @foreach(ArchetypeFieldsetModel fieldSet in eventTracking)
+        {
+            string titleDescription = fieldSet.GetValue<string>("titleDescription");
+            string selectorElement = fieldSet.GetValue<string>("selectorElement");
+            string category = fieldSet.GetValue<string>("category");
+            string action = fieldSet.GetValue<string>("action");
+            string label = fieldSet.GetValue<string>("label");
+
+            <text>
+        $(document).on('click', '@selectorElement', function () {
+                var itemTitle = $(this).text();
+                var eventCategory = '@category';
+                var eventAction = '@action';
+                var eventLabel = '@label';
+                eventLabel = eventLabel.replace('{ITEM_TITLE}',itemTitle)
+                //ga('send', 'event', eventCategory, (eventAction != undefined && eventAction != '' ? eventAction : 'click'), eventLabel);
+                alert(eventCategory + ' ' + (eventAction != undefined && eventAction != '' ? eventAction : 'click') + ' ' + eventLabel);
+            });
+            </text>
+        }
+
+
+    </script>
+}
