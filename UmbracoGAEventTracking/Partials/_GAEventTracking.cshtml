@@ -1,36 +1,30 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
-@using Archetype.Models
-@using Umbraco.Web
+@using UmbracoGAEventTracking
+
+<script type="text/javascript" src="~/Scripts/SendGaEvent.js"></script>
 
 @{
-    var homePage = Model.Content.AncestorOrSelf(1);
-    ArchetypeModel eventTracking = null;
-    if (homePage.HasProperty("eventTrackingSettings"))
+    var events = new EventHelper(Model.Content).GetEvents();
+
+    if (events != null)
     {
-        eventTracking = homePage.GetPropertyValue<ArchetypeModel>("eventTrackingSettings");
-    }
-
-    <script>
-        @foreach(ArchetypeFieldsetModel fieldSet in eventTracking)
+        foreach (Event gaEvent in events)
         {
-            string titleDescription = fieldSet.GetValue<string>("titleDescription");
-            string selectorElement = fieldSet.GetValue<string>("selectorElement");
-            string category = fieldSet.GetValue<string>("category");
-            string action = fieldSet.GetValue<string>("action");
-            string label = fieldSet.GetValue<string>("label");
-
-            <text>
-        $(document).on('click', '@selectorElement', function () {
-            var itemTitle = $(this).text();
-            var eventCategory = '@category';
-            var eventAction = '@action';
-            var eventLabel = '@label';
-            eventLabel = eventLabel.replace('{ITEM_TITLE}', itemTitle);
-            var action = eventAction !== '' ? eventAction : 'click';
-            //ga('send', 'event', eventCategory, action, eventLabel);
-            alert(eventCategory + ' ' + (eventAction != undefined && eventAction != '' ? eventAction : 'click') + ' ' + eventLabel);
-        });
-        </text>
+            <script type="text/javascript">
+                window.onload = function () {
+                    var elements = document.querySelectorAll(@gaEvent.CssSelector);
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].addEventListener(
+                            '@gaEvent.Action',
+                            function () {
+                                sendGaEvent(
+                                    '@gaEvent.Category',
+                                    '@gaEvent.Action',
+                                    '@gaEvent.Label');
+                            });
+                    }
+                };
+            </script>
         }
-    </script>
+    }
 }
