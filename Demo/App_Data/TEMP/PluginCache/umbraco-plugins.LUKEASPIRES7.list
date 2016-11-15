@@ -265,4 +265,9 @@
     <add type="Umbraco.Web.Cache.UserPermissionsCacheRefresher, umbraco, Version=1.0.6136.27248, Culture=neutral, PublicKeyToken=null" />
     <add type="Umbraco.Web.Cache.UserTypeCacheRefresher, umbraco, Version=1.0.6136.27248, Culture=neutral, PublicKeyToken=null" />
   </baseType>
+  <baseType type="Umbraco.Web.Editors.IEditorValidator" resolutionType="FindAllTypes">
+    <add type="Umbraco.ModelsBuilder.Validation.ContentTypeModelValidator, Umbraco.ModelsBuilder, Version=3.0.4.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="Umbraco.ModelsBuilder.Validation.MediaTypeModelValidator, Umbraco.ModelsBuilder, Version=3.0.4.0, Culture=neutral, PublicKeyToken=null" />
+    <add type="Umbraco.ModelsBuilder.Validation.MemberTypeModelValidator, Umbraco.ModelsBuilder, Version=3.0.4.0, Culture=neutral, PublicKeyToken=null" />
+  </baseType>
 </plugins>
