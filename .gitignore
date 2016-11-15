@@ -244,3 +244,4 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /Umb.LukeWarrenDev/App_Data/cache/2/d/c/b/8/9
+/Demo/App_Data/Logs
