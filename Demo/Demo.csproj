@@ -309,6 +309,7 @@
     <Content Include="packages.config" />
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
     <Content Include="scripts\fanoe.js" />
+    <Content Include="scripts\ga-helpers.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
@@ -376,7 +377,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\HtmlExtensions.cs" />
+    <Content Include="App_Code\GAEventTracking\Event.cs" />
+    <Content Include="App_Code\GAEventTracking\EventService.cs" />
+    <Content Include="App_Code\GAEventTracking\HtmlExtensions.cs" />
+    <Content Include="App_Code\GAEventTracking\Keys.cs" />
+    <Content Include="App_Code\GAEventTracking\RegisterEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

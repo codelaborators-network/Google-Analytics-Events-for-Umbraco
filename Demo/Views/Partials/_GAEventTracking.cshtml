@@ -1,7 +1,7 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @using UmbracoGAEventTracking
 
-<script type="text/javascript" src="~/Scripts/SendGaEvent.js"></script>
+<script type="text/javascript" src="~/Scripts/ga-helpers.js"></script>
 
 @{
     var events = new EventHelper(Model.Content).GetEvents();

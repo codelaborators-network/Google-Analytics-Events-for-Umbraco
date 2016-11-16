@@ -43,9 +43,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Archetype">
-      <HintPath>..\lib\Archetype.dll</HintPath>
-    </Reference>
     <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
       <Private>True</Private>
@@ -287,12 +284,14 @@
     <Content Include="Partials\_GoogleAnalytics.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\SendGaEvent.js" />
+    <Content Include="Scripts\ga-helpers.js" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\HtmlExtensions.cs" />
-    <Content Include="App_Code\EventService.cs" />
-    <Content Include="App_Code\Event.cs" />
+    <Content Include="App_Code\GAEventTracking\HtmlExtensions.cs" />
+    <Content Include="App_Code\GAEventTracking\EventService.cs" />
+    <Content Include="App_Code\GAEventTracking\Event.cs" />
+    <Content Include="App_Code\GAEventTracking\Keys.cs" />
+    <Content Include="App_Code\GAEventTracking\RegisterEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
@@ -330,9 +329,9 @@
   </Target>
   <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /E /Y "$(ProjectDir)Partials\*.cshtml" "$(SolutionDir)Demo\Views\Partials"
-xcopy /E /Y "$(ProjectDir)App_Code\*.cs" "$(SolutionDir)Demo\App_Code"
-xcopy /E /Y "$(ProjectDir)Scripts\*.js" "$(SolutionDir)Demo\Scripts"</PostBuildEvent>
+    <PostBuildEvent>xcopy /E /Y /S /D "$(ProjectDir)Partials\*.cshtml" "$(SolutionDir)Demo\Views\Partials"
+xcopy /E /Y /S /D "$(ProjectDir)App_Code\*.cs" "$(SolutionDir)Demo\App_Code"
+xcopy /E /Y /S /D "$(ProjectDir)Scripts\*.js" "$(SolutionDir)Demo\Scripts"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
