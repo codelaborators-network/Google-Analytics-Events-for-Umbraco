@@ -1,13 +1,11 @@
-# Umbraco-GA-Event-Tracking
+# Umbraco Google Analytics Events Tracking
 
-A package for adding manageable GA Event Tracking to your Umbraco site
+A package for adding manageable GA Event Tracking to your Umbraco site.
 
-## Setup
+## Install
 
-1. Download and Install [Archetype](https://our.umbraco.org/projects/backoffice-extensions/archetype) via the package install or manually
-2. Install the Umbraco-GA-Event-Tracking package (we are still working on the first release)
-3. Add the "Event Analytics" Document Type via composition to the root document type if your Umbraco website
-4. Add the Following code to your master template (order is important)
+1. Install the Umbraco-GA-Event-Tracking package (we are still working on the first release)
+2. Add the Following code to your master template (order is important)
 
 ```javascript
 
@@ -15,6 +13,10 @@ A package for adding manageable GA Event Tracking to your Umbraco site
 @Html.IncludeGaEventTracking()
 
 ```
+
+## How to Use
+
+### Coming soon
 
 ## Contributers
 
@@ -26,5 +28,7 @@ The login for the demo site is:
 
 User: admin@test.com
 Password: password123
+
+Please contact either Paul or Luke before putting in a PR
 
 ## More is coming soon!

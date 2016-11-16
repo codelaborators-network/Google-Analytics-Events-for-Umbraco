@@ -25,7 +25,7 @@ namespace UmbracoGAEventTracking.GAEventTracking
                         string labelTemplate = content.GetValue<string>(Keys.PropertyAliases.Label);
                         if (!string.IsNullOrEmpty(labelTemplate))
                         {
-                            var matches = Regex.Matches(labelTemplate, "{[A-Za-z0-9]+}+");
+                            var matches = Regex.Matches(labelTemplate, Keys.LabelPlaceholderRegex);
                             foreach (Match match in matches)
                             {
                                 if (!Keys.LabelPlaceholders.ContainsValue(match.Value))

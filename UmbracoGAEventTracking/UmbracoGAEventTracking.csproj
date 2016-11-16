@@ -284,14 +284,15 @@
     <Content Include="Partials\_GoogleAnalytics.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\ga-helpers.js" />
+    <Content Include="Scripts\UmbracoGAEventTracking.js" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Code\GAEventTracking\HtmlExtensions.cs" />
-    <Content Include="App_Code\GAEventTracking\EventService.cs" />
+    <Content Include="App_Code\GAEventTracking\EventContentHelper.cs" />
     <Content Include="App_Code\GAEventTracking\Event.cs" />
     <Content Include="App_Code\GAEventTracking\Keys.cs" />
     <Content Include="App_Code\GAEventTracking\RegisterEvents.cs" />
+    <Content Include="App_Code\GAEventTracking\Controllers\GAEventTrackingController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

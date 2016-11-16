@@ -25,5 +25,10 @@ namespace UmbracoGAEventTracking
             Category = content.GetPropertyValue<string>(Keys.PropertyAliases.Category);
             CssSelector = content.GetPropertyValue<string>(Keys.PropertyAliases.CssSelector);
         }
+
+        public Event()
+        {
+            throw new NotImplementedException("Parameterless default constructor only for serialization");
+        }
     }
 }
