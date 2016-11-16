@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "2edb847916df364b")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "1455ca71c9017105")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
 
 
 // FILE: models.generated.cs
@@ -348,6 +348,15 @@ namespace Umbraco.Web.PublishedContentModels
 		{
 			get { return this.GetPropertyValue<bool>("googleAnalyticsEvent_DisableEvents"); }
 		}
+
+		///<summary>
+		/// Google Analytics Key: Enter your unique GA property id here to be used on the page
+		///</summary>
+		[ImplementPropertyType("googleAnalyticsKey")]
+		public string GoogleAnalyticsKey
+		{
+			get { return this.GetPropertyValue<string>("googleAnalyticsKey"); }
+		}
 	}
 
 	/// <summary>Google Analytics Event</summary>
@@ -388,9 +397,9 @@ namespace Umbraco.Web.PublishedContentModels
 		/// Category: The category the event should be classified in the Google Analytics dashboard
 		///</summary>
 		[ImplementPropertyType("googleAnalyticsEvent_Category")]
-		public object GoogleAnalyticsEvent_Category
+		public string GoogleAnalyticsEvent_Category
 		{
-			get { return this.GetPropertyValue("googleAnalyticsEvent_Category"); }
+			get { return this.GetPropertyValue<string>("googleAnalyticsEvent_Category"); }
 		}
 
 		///<summary>
@@ -403,21 +412,12 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Label: The label to use for the GA event. Please note that this is templatable. Simple enter one of the following placeholders and it will be replaced by the appropriate value when the vent takes place: PageUrl: {PAGE_URL}, PageRelativeUrl: {PAGE_RELATIVE_URL}, TagName: {TAG_NAME}, ID: {ID} , Class: {CLASS}, Value: {VALUE}, Src: {SRC}, LinkUrl: {LINK_URL}, LinkRelativeUrl: {LINK_RELATIVE_URL}, Alt: {ALT}, Title {TITLE}
+		/// Label: The label to use for the GA event. Please note that this is templatable. Simple enter one of the following placeholders and it will be replaced by the appropriate value when the vent takes place: PageUrl: {PAGE_URL}, PageRelativeUrl: {PAGE_RELATIVE_URL}, TagName: {TAG_NAME}, ID: {ID} , Class: {CLASS}, Value: {VALUE}, Src: {SRC}, LinkUrl: {LINK_URL}, LinkRelativeUrl: {LINK_RELATIVE_URL}, Alt: {ALT}, Title: {TITLE}, InnerHTML: {INNER_HTML}
 		///</summary>
 		[ImplementPropertyType("googleAnalyticsEvent_Label")]
 		public string GoogleAnalyticsEvent_Label
 		{
 			get { return this.GetPropertyValue<string>("googleAnalyticsEvent_Label"); }
-		}
-
-		///<summary>
-		/// Title: This is the title of your event. Only set if you want to overwrite the node title
-		///</summary>
-		[ImplementPropertyType("googleAnalyticsEvent_Title")]
-		public string GoogleAnalyticsEvent_Title
-		{
-			get { return this.GetPropertyValue<string>("googleAnalyticsEvent_Title"); }
 		}
 	}
 

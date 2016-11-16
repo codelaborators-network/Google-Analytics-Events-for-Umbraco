@@ -62,6 +62,10 @@
                 return !isNull(element.title)
                    ? element.title
                    : "";
+            case "{INNER_HTML}":
+                return !isNull(element.innerHTML)
+                   ? element.innerHTML
+                   : "";
             default:
                 return "";
         }

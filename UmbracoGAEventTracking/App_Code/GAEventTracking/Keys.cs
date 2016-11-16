@@ -18,7 +18,8 @@ namespace UmbracoGAEventTracking
                 { "LinkUrl", "{LINK_URL}"},
                 { "LinkRelativeUrl", "{LINK_RELATIVE_URL}"},
                 { "Alt", "{ALT}"},
-                { "Title", "{TITLE}"}
+                { "Title", "{TITLE}"},
+                { "InnerHTML", "{INNER_HTML}"}
             };
 
         public static class DocumentTypes
