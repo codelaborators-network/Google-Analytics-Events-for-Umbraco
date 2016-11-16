@@ -4,7 +4,7 @@ namespace UmbracoGAEventTracking
 {
     public static class Keys
     {
-        public const string LabelPlaceholderRegex = "/{[A-Za-z0-9]+}+/g";
+        public const string LabelPlaceholderRegex = "/{[A-Za-z0-9_-]+}+/g";
 
         public static Dictionary<string, string> LabelPlaceholders = new Dictionary<string, string>()
             {

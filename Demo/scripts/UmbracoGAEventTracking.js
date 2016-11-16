@@ -39,21 +39,36 @@
             case "{CLASS}":
                 return element.className;
             case "{VALUE}":
-                return element.value;
+                return !isNull(element.value)
+                   ? element.value
+                   : "";
             case "{SRC}":
-                return element.src;
+                return !isNull(element.src)
+                   ? element.src
+                   : "";
             case "{LINK_URL}":
-                return element.href;
+                return !isNull(element.href)
+                   ? element.href
+                   : "";
             case "{LINK_RELATIVE_URL}":
-                return element.href.replace(window.location.origin, "");
+                return isNull(element.href)
+                    ? ""
+                    : element.href.replace(window.location.origin, "");
             case "{ALT}":
-                return element.alt;
+                return !isNull(element.alt)
+                    ? element.alt
+                    : "";
             case "{TITLE}":
-                return element.title;
+                return !isNull(element.title)
+                   ? element.title
+                   : "";
             default:
                 return "";
         }
     };
+    function isNull(obj) {
+        return (obj === null || typeof obj === 'undefined');
+    }
     function registerElementForEvent(element, event) {
         element.addEventListener(
             event.Action,
