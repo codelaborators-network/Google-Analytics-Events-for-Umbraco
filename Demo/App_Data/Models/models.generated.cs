@@ -19,7 +19,7 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "e96a6b21ba486c6f")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "2edb847916df364b")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedContentModels
@@ -387,7 +387,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Label: The label to use for the GA event
+		/// Label: The label to use for the GA event. Please note that this is templatable. Simple enter one of the following placeholders and it will be replaced by the appropriate value when the vent takes place: PageUrl: {PAGE_URL}, PageRelativeUrl: {PAGE_RELATIVE_URL}, TagName: {TAG_NAME}, ID: {ID} , Class: {CLASS}, Value: {VALUE}, Src: {SRC}, LinkUrl: {LINK_URL}, LinkRelativeUrl: {LINK_RELATIVE_URL}, Alt: {ALT}, Title {TITLE}
 		///</summary>
 		[ImplementPropertyType("googleAnalyticsEvent_Label")]
 		public string GoogleAnalyticsEvent_Label

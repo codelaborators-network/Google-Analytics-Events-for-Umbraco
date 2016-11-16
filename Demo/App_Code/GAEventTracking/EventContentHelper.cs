@@ -5,13 +5,19 @@ using Umbraco.Web;
 
 namespace UmbracoGAEventTracking
 {
-    public class EventHelper
+    public class EventContentHelper
     {
         private readonly IPublishedContent _content;
 
-        public EventHelper(IPublishedContent content)
+        public EventContentHelper(IPublishedContent content)
         {
             _content = content;
+        }
+
+        public EventContentHelper(int nodeId)
+        {
+            var umbracoHelper = new UmbracoHelper(UmbracoContext.Current);
+            _content = umbracoHelper.TypedContent(nodeId);
         }
 
         public bool AreGaEventsDisabled()
@@ -38,9 +44,12 @@ namespace UmbracoGAEventTracking
 
         private IPublishedContent GetGAEventRoot()
         {
+            if (_content == null)
+                return null;
+
             return _content.AncestorOrSelf(1)
-                                        .Siblings()
-                                        .FirstOrDefault(n => n.DocumentTypeAlias == Keys.DocumentTypes.GAEventTrackingRootAlias);
+                           .Siblings()
+                           .FirstOrDefault(n => n.DocumentTypeAlias == Keys.DocumentTypes.GAEventTrackingRootAlias);
         }
     }
 }
