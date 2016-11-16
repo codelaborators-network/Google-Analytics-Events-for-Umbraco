@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "b90bbf3b40cdeda7")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "6aa17536f41d55e4")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 
 // FILE: models.generated.cs
@@ -313,6 +313,112 @@ namespace Umbraco.Web.PublishedContentModels
 
 		/// <summary>Static getter for Event Tracking Settings</summary>
 		public static Archetype.Models.ArchetypeModel GetEventTrackingSettings(IGAeventTrackingControls that) { return that.GetPropertyValue<Archetype.Models.ArchetypeModel>("eventTrackingSettings"); }
+	}
+
+	/// <summary>Google Analytics Tracking</summary>
+	[PublishedContentModel("googleAnalyticsEvents")]
+	public partial class GoogleAnalyticsEvents : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "googleAnalyticsEvents";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public GoogleAnalyticsEvents(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<GoogleAnalyticsEvents, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Disable GA Events: Settings this flag will disable all events on all pages.
+		///</summary>
+		[ImplementPropertyType("disableGAEvents")]
+		public bool DisableGaevents
+		{
+			get { return this.GetPropertyValue<bool>("disableGAEvents"); }
+		}
+	}
+
+	/// <summary>Google Analytics Event</summary>
+	[PublishedContentModel("gAEvent")]
+	public partial class GAevent : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "gAEvent";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public GAevent(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<GAevent, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Action: The action type that you are listening for on the element. Example. The "click" action will fire when an element is clicked
+		///</summary>
+		[ImplementPropertyType("gaEventAction")]
+		public object GaEventAction
+		{
+			get { return this.GetPropertyValue("gaEventAction"); }
+		}
+
+		///<summary>
+		/// Category: The category the event should be classified in the Google Analytics dashboard
+		///</summary>
+		[ImplementPropertyType("gaEventCategory")]
+		public object GaEventCategory
+		{
+			get { return this.GetPropertyValue("gaEventCategory"); }
+		}
+
+		///<summary>
+		/// CSS Selector: The CSS selector that will be used to attach the GA event to the element. Example: ".someClass", "#some-id", "h1"
+		///</summary>
+		[ImplementPropertyType("gaEventCssSelector")]
+		public string GaEventCssSelector
+		{
+			get { return this.GetPropertyValue<string>("gaEventCssSelector"); }
+		}
+
+		///<summary>
+		/// Label: The label to use for the GA event
+		///</summary>
+		[ImplementPropertyType("gaEventLabel")]
+		public string GaEventLabel
+		{
+			get { return this.GetPropertyValue<string>("gaEventLabel"); }
+		}
+
+		///<summary>
+		/// Title: This is the title of your event. Only set if you want to overwrite the node title
+		///</summary>
+		[ImplementPropertyType("gaEventTitle")]
+		public string GaEventTitle
+		{
+			get { return this.GetPropertyValue<string>("gaEventTitle"); }
+		}
 	}
 
 	/// <summary>Folder</summary>
