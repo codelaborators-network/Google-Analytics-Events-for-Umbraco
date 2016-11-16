@@ -1,4 +1,5 @@
 # Umbraco Google Analytics Events Tracking
+![PasswordGenerator Logo](https://github.com/prjseal/Umbraco-GA-Event-Tracking/blob/master/umbraco-ga-event-tracking.jpg "Umbraco GA Event Tracking Logo")
 
 A package for adding manageable GA Event Tracking to your Umbraco site.
 
