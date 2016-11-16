@@ -1,5 +1,4 @@
-﻿using Archetype.Models;
-using System;
+﻿using System;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 
@@ -12,15 +11,6 @@ namespace UmbracoGAEventTracking
         public string Label { get; set; }
         public string Category { get; set; }
         public string CssSelector { get; set; }
-
-        public Event(ArchetypeFieldsetModel field)
-        {
-            Title = field.GetValue<string>("titleDescription");
-            Action = field.GetValue<string>("action");
-            Label = field.GetValue<string>("label");
-            Category = field.GetValue<string>("category");
-            CssSelector = field.GetValue<string>("selectorElement");
-        }
 
         public Event(IPublishedContent content)
         {

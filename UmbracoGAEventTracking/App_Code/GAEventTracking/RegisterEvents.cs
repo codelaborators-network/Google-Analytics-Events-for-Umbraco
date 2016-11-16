@@ -18,7 +18,7 @@ namespace UmbracoGAEventTracking.GAEventTracking
         {
             foreach (var content in e.PublishedEntities)
             {
-                if (content.ContentType.Alias == Keys.DocumentTypes.GAEventItemAlias)
+                if (content.ContentType.Alias == Keys.DocumentTypes.GoogleAnalyticsEventItem)
                 {
                     if (content.HasProperty(Keys.DocumentTypes.PropertyAliases.Title))
                     {

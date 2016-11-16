@@ -1,12 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using Umbraco.Core;
 using Umbraco.Core.Events;
 using Umbraco.Core.Models;
 using Umbraco.Core.Publishing;
 using Umbraco.Core.Services;
-using Umbraco.Web;
 
 namespace UmbracoGAEventTracking.GAEventTracking
 {
@@ -21,7 +18,7 @@ namespace UmbracoGAEventTracking.GAEventTracking
         {
             foreach (var content in e.PublishedEntities)
             {
-                if (content.ContentType.Alias == Keys.DocumentTypes.GAEventItemAlias)
+                if (content.ContentType.Alias == Keys.DocumentTypes.GoogleAnalyticsEventItem)
                 {
                     if (content.HasProperty(Keys.DocumentTypes.PropertyAliases.Title))
                     {

@@ -1,5 +1,4 @@
-﻿using Archetype.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Umbraco.Core.Models;
 using Umbraco.Web;
@@ -17,11 +16,14 @@ namespace UmbracoGAEventTracking
 
         public List<Event> GetEvents()
         {
-            var homePage = _content.AncestorOrSelf(1);
-            if (homePage.HasProperty("eventTrackingSettings"))
+            var eventRootNode = _content.AncestorsOrSelf(1)
+                                        .FirstOrDefault(n => n.DocumentTypeAlias == Keys.DocumentTypes.GAEventTrackingRootAlias);
+
+            if (eventRootNode != null)
             {
-                ArchetypeModel eventTracking = homePage.GetPropertyValue<ArchetypeModel>("eventTrackingSettings");
-                return eventTracking.Select(c => new Event(c)).ToList();
+                return eventRootNode.Children(c => c.DocumentTypeAlias == Keys.DocumentTypes.GoogleAnalyticsEventItem)
+                                    .Select(c => new Event(c))
+                                    .ToList();
             }
             return null;
         }

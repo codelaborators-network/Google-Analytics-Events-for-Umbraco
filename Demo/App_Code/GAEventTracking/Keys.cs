@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace UmbracoGAEventTracking.GAEventTracking
+namespace UmbracoGAEventTracking
 {
     public static class Keys
     {
@@ -21,14 +21,18 @@ namespace UmbracoGAEventTracking.GAEventTracking
 
         public static class DocumentTypes
         {
-            // TODO - double check these
-            public const string GAEventTrackingRootAlias = "gaEventTrackingRoot";
-            public const string GAEventItemAlias = "gaEvent";
+            public const string GAEventTrackingRootAlias = "googleAnalyticsEventRoot";
+            public const string GoogleAnalyticsEventItem = "googleAnalyticsEcent_DisableEvents";
 
             public static class PropertyAliases
             {
-                // TODO - add all the other aliases
-                public const string Title = "gaEventTitle";
+                public const string DisableGAEvents = "googleAnalyticsEcent_DisableEvents";
+
+                public const string Title = "googleAnalyticsEvent_Title";
+                public const string CssSelector = "googleAnalyticsEvent_CssSelector";
+                public const string Category = "googleAnalyticsEvent_Category";
+                public const string Action = "googleAnalyticsEvent_Action";
+                public const string Label = "googleAnalyticsEvent_Label";
             }
         }
     }
