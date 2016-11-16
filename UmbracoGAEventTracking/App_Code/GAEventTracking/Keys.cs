@@ -22,18 +22,18 @@ namespace UmbracoGAEventTracking
         public static class DocumentTypes
         {
             public const string GAEventTrackingRootAlias = "googleAnalyticsEventRoot";
-            public const string GoogleAnalyticsEventItem = "googleAnalyticsEcent_DisableEvents";
+            public const string GoogleAnalyticsEventItem = "googleAnalyticsEventItem";
+        }
 
-            public static class PropertyAliases
-            {
-                public const string DisableGAEvents = "googleAnalyticsEcent_DisableEvents";
+        public static class PropertyAliases
+        {
+            public const string DisableGAEvents = "googleAnalyticsEvent_DisableEvents";
 
-                public const string Title = "googleAnalyticsEvent_Title";
-                public const string CssSelector = "googleAnalyticsEvent_CssSelector";
-                public const string Category = "googleAnalyticsEvent_Category";
-                public const string Action = "googleAnalyticsEvent_Action";
-                public const string Label = "googleAnalyticsEvent_Label";
-            }
+            public const string Title = "googleAnalyticsEvent_Title";
+            public const string CssSelector = "googleAnalyticsEvent_CssSelector";
+            public const string Category = "googleAnalyticsEvent_Category";
+            public const string Action = "googleAnalyticsEvent_Action";
+            public const string Label = "googleAnalyticsEvent_Label";
         }
     }
 }

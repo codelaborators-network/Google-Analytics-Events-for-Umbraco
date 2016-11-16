@@ -19,7 +19,7 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "ff22b2c51bb6996f")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "e96a6b21ba486c6f")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedContentModels
@@ -327,10 +327,10 @@ namespace Umbraco.Web.PublishedContentModels
 		///<summary>
 		/// Disable GA Events: Settings this flag will disable all events on all pages.
 		///</summary>
-		[ImplementPropertyType("googleAnalyticsEcent_DisableEvents")]
-		public bool GoogleAnalyticsEcent_DisableEvents
+		[ImplementPropertyType("googleAnalyticsEvent_DisableEvents")]
+		public bool GoogleAnalyticsEvent_DisableEvents
 		{
-			get { return this.GetPropertyValue<bool>("googleAnalyticsEcent_DisableEvents"); }
+			get { return this.GetPropertyValue<bool>("googleAnalyticsEvent_DisableEvents"); }
 		}
 	}
 

@@ -20,16 +20,19 @@ namespace UmbracoGAEventTracking.GAEventTracking
             {
                 if (content.ContentType.Alias == Keys.DocumentTypes.GoogleAnalyticsEventItem)
                 {
-                    if (content.HasProperty(Keys.DocumentTypes.PropertyAliases.Title))
+                    if (content.HasProperty(Keys.PropertyAliases.Label))
                     {
-                        string title = content.GetValue<string>(Keys.DocumentTypes.PropertyAliases.Title);
-                        MatchCollection labelPlaceholders = Regex.Matches(title, "{[A-Za-z0-9]+}+");
-                        foreach (string match in labelPlaceholders)
+                        string labelTemplate = content.GetValue<string>(Keys.PropertyAliases.Label);
+                        if (!string.IsNullOrEmpty(labelTemplate))
                         {
-                            if (!Keys.LabelPlaceholders.ContainsValue(match))
+                            var matches = Regex.Matches(labelTemplate, "{[A-Za-z0-9]+}+");
+                            foreach (Match match in matches)
                             {
-                                e.Cancel = true;
-                                e.Messages.Add(new EventMessage("Cannot publish GA Event", "One of the Placeholders entered does not match our standard list of placeholders.", EventMessageType.Warning));
+                                if (!Keys.LabelPlaceholders.ContainsValue(match.Value))
+                                {
+                                    e.Cancel = true;
+                                    e.Messages.Add(new EventMessage("Cannot publish GA Event", "One of the Placeholders entered does not match our standard list of placeholders.", EventMessageType.Warning));
+                                }
                             }
                         }
                     }
