@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Umbraco GA Event Tracking by codelaborators-network</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Umbraco GA Event Tracking</h1>
+      <h2 class="project-tagline">A package for adding manageable Google Analytics Event Tracking to your Umbraco site</h2>
+      <a href="https://github.com/codelaborators-network/Umbraco-GA-Event-Tracking" class="btn">View on GitHub</a>
+      <a href="https://github.com/codelaborators-network/Umbraco-GA-Event-Tracking/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/codelaborators-network/Umbraco-GA-Event-Tracking/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="umbraco-google-analytics-events-tracking" class="anchor" href="#umbraco-google-analytics-events-tracking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Umbraco Google Analytics Events Tracking</h1>
+
+<p><img src="https://github.com/codelaborators-network/Umbraco-GA-Event-Tracking/blob/master/umbraco-ga-event-tracking.jpg" alt="PasswordGenerator Logo" title="Umbraco GA Event Tracking Logo"></p>
+
+<p>A package for adding manageable GA Event Tracking to your Umbraco site.</p>
+
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install</h2>
+
+<ol>
+<li>Install the Umbraco-GA-Event-Tracking package</li>
+<li>Include the event tracking script via the Html Helper anywhere AFTER you have included Google Analytics in your master template page.</li>
+</ol>
+
+<h3>
+<a id="including-google-analytics" class="anchor" href="#including-google-analytics" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Including Google Analytics</h3>
+
+<p>For your convenience, we have a handy helper available for outputting the GA script. You do not have to use this method if you have already included GA but if you do, make sure to set your API key.</p>
+
+<blockquote>
+<p>Set your API key in the properties of the Event Tracking content node</p>
+</blockquote>
+
+<div class="highlight highlight-source-js"><pre>@<span class="pl-smi">Html</span>.<span class="pl-en">IncludeGoogleAnalytics</span>()</pre></div>
+
+<h2>
+<a id="including-the-tracking-script" class="anchor" href="#including-the-tracking-script" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Including the Tracking Script</h2>
+
+<p>As above, just add this bit of razor code anywhere after you include GA in your master template</p>
+
+<div class="highlight highlight-source-js"><pre>@<span class="pl-smi">Html</span>.<span class="pl-en">IncludeGaEventTracking</span>()</pre></div>
+
+<h2>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to Use</h2>
+
+<h3>
+<a id="coming-soon" class="anchor" href="#coming-soon" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Coming soon</h3>
+
+<h2>
+<a id="how-do-i-contribute" class="anchor" href="#how-do-i-contribute" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How do I Contribute?</h2>
+
+<p>First off, please create an issue before coding away and putting in a pull request.</p>
+
+<h3>
+<a id="getting-the-demo-project-working" class="anchor" href="#getting-the-demo-project-working" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting the Demo Project Working</h3>
+
+<p>The actual umbraco package is contained in a separate project in the Visual Studio solution. </p>
+
+<p>Building this project will automatically copy over all necessary files to the Demo website project. You then can use this Demo to test with.</p>
+
+<h4>
+<a id="demo-login" class="anchor" href="#demo-login" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo Login:</h4>
+
+<p>User: <a href="mailto:admin@test.com">admin@test.com</a>
+Password: password123</p>
+
+<h2>
+<a id="developers" class="anchor" href="#developers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Developers</h2>
+
+<p>This package is built and maintained by <a href="http://lukewarrendev.co.za">Luke Warren</a> and <a href="http://www.codeshare.co.uk/">Paul Seal</a>.</p>
+
+<p>Special mention to:</p>
+
+<p><a href="http://syncrony.com">Syncrony</a></p>
+
+<p>and</p>
+
+<h2>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TODO</h2>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/codelaborators-network/Umbraco-GA-Event-Tracking">Umbraco GA Event Tracking</a> is maintained by <a href="https://github.com/codelaborators-network">codelaborators-network</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
