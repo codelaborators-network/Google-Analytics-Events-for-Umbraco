@@ -13,6 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 		appveyor.yml = appveyor.yml
 		License.md = License.md
+		Logos\logo.png = Logos\logo.png
+		Logos\logo_100_100.jpg = Logos\logo_100_100.jpg
+		Logos\logo_200_200.jpg = Logos\logo_200_200.jpg
+		Logos\logo_400_400.jpg = Logos\logo_400_400.jpg
+		Logos\logo_600_600.jpg = Logos\logo_600_600.jpg
 		README.md = README.md
 	EndProjectSection
 EndProject
