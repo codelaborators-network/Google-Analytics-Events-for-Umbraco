@@ -1,5 +1,5 @@
-# Umbraco Google Analytics Events Tracking
-![PasswordGenerator Logo](https://github.com/prjseal/Umbraco-GA-Event-Tracking/blob/master/umbraco-ga-event-tracking.jpg "Umbraco GA Event Tracking Logo")
+# Google Analytics Events for Umbraco
+![Google Analytics Events for Umbraco Logo](https://github.com/codelaborators-network/Google-Analytics-Events-for-Umbraco/blob/master/umbraco-ga-event-tracking.jpg?raw=true "Umbraco GA Event Tracking Logo")
 
 A package for adding manageable GA Event Tracking to your Umbraco site.
 
@@ -15,21 +15,5 @@ A package for adding manageable GA Event Tracking to your Umbraco site.
 
 ```
 
-## How to Use
+### Please read the [Documentation Website](https://github.com/codelaborators-network/Google-Analytics-Events-for-Umbraco) for more in depth guidelines
 
-### Coming soon
-
-## Contributers
-
-The package is contained in a separate project in the Visual Studio solution. 
-
-Building this project will automatically copy over all necessary files to the Demo website which you can use to test.
-
-The login for the demo site is: 
-
-User: admin@test.com
-Password: password123
-
-Please contact either Paul or Luke before putting in a PR
-
-## More is coming soon!
