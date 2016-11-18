@@ -35,7 +35,7 @@ namespace UmbracoGAEventTracking
             var eventRootNode = GetGAEventRoot();
             if (eventRootNode != null)
             {
-                return eventRootNode.Children(c => c.DocumentTypeAlias == Keys.DocumentTypes.GoogleAnalyticsEventItem)
+                return eventRootNode.Children(c => c.DocumentTypeAlias == Keys.DocumentTypes.GoogleAnalyticsAdvancedEventItem || c.DocumentTypeAlias == Keys.DocumentTypes.GoogleAnalyticsStandardEventItem)
                                     .Select(c => new Event(c))
                                     .ToList();
             }

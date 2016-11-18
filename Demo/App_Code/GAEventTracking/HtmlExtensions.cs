@@ -12,7 +12,7 @@ namespace UmbracoGAEventTracking
         /// <param name="helper"></param>
         /// <param name="analyticsKey"></param>
         /// <returns></returns>
-        public static HtmlString IncludeGoogleAnalytics(this HtmlHelper helper, string analyticsKey)
+        public static HtmlString IncludeGoogleAnalytics(this HtmlHelper helper)
         {
             return helper.Partial("_GoogleAnalytics");
         }

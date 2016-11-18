@@ -25,7 +25,8 @@ namespace UmbracoGAEventTracking
         public static class DocumentTypes
         {
             public const string GAEventTrackingRootAlias = "googleAnalyticsEventRoot";
-            public const string GoogleAnalyticsEventItem = "googleAnalyticsEventItem";
+            public const string GoogleAnalyticsAdvancedEventItem = "googleAnalyticsEventItem";
+            public const string GoogleAnalyticsStandardEventItem = "googleAnalyticsStandardEvent";
         }
 
         public static class PropertyAliases
