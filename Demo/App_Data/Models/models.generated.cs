@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "1f64b092a848a491")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "fe3c70b6856890fe")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.4")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -105,7 +105,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Home</summary>
 	[PublishedContentModel("Home")]
-	public partial class Home : PublishedContentModel, IGAeventTrackingControls
+	public partial class Home : PublishedContentModel
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "Home";
@@ -162,15 +162,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public string SiteTitle
 		{
 			get { return this.GetPropertyValue<string>("siteTitle"); }
-		}
-
-		///<summary>
-		/// Event Tracking Settings: Add the rules and settings for event tracking
-		///</summary>
-		[ImplementPropertyType("eventTrackingSettings")]
-		public object EventTrackingSettings
-		{
-			get { return GAeventTrackingControls.GetEventTrackingSettings(this); }
 		}
 	}
 
@@ -253,52 +244,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 	}
 
-	// Mixin content Type 1082 with alias "gAEventTrackingControls"
-	/// <summary>GA Event Tracking Controls</summary>
-	public partial interface IGAeventTrackingControls : IPublishedContent
-	{
-		/// <summary>Event Tracking Settings</summary>
-		object EventTrackingSettings { get; }
-	}
-
-	/// <summary>GA Event Tracking Controls</summary>
-	[PublishedContentModel("gAEventTrackingControls")]
-	public partial class GAeventTrackingControls : PublishedContentModel, IGAeventTrackingControls
-	{
-#pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "gAEventTrackingControls";
-		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
-#pragma warning restore 0109
-
-		public GAeventTrackingControls(IPublishedContent content)
-			: base(content)
-		{ }
-
-#pragma warning disable 0109 // new is redundant
-		public new static PublishedContentType GetModelContentType()
-		{
-			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
-		}
-#pragma warning restore 0109
-
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<GAeventTrackingControls, TValue>> selector)
-		{
-			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
-		}
-
-		///<summary>
-		/// Event Tracking Settings: Add the rules and settings for event tracking
-		///</summary>
-		[ImplementPropertyType("eventTrackingSettings")]
-		public object EventTrackingSettings
-		{
-			get { return GetEventTrackingSettings(this); }
-		}
-
-		/// <summary>Static getter for Event Tracking Settings</summary>
-		public static object GetEventTrackingSettings(IGAeventTrackingControls that) { return that.GetPropertyValue("eventTrackingSettings"); }
-	}
-
 	/// <summary>Google Analytics Tracking</summary>
 	[PublishedContentModel("googleAnalyticsEventRoot")]
 	public partial class GoogleAnalyticsEventRoot : PublishedContentModel
@@ -369,7 +314,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Action: The action type that you are listening for on the element. Example. The "click" action will fire when an element is clicked
+		/// Action: The action type that you are listening for on the element. Example: The "click" action will fire when an element is clicked
 		///</summary>
 		[ImplementPropertyType("googleAnalyticsEvent_Action")]
 		public object GoogleAnalyticsEvent_Action
@@ -431,7 +376,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Action: The action type that you are listening for on the element. Example. The "click" action will fire when an element is clicked
+		/// Action: The action type that you are listening for on the element. Example: The "click" action will fire when an element is clicked
 		///</summary>
 		[ImplementPropertyType("googleAnalyticsEvent_Action")]
 		public object GoogleAnalyticsEvent_Action

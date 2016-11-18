@@ -42,7 +42,9 @@ namespace UmbracoGAEventTracking
 
         private string TranslateCheckboxValuesToPlaceholders(string propertyValue)
         {
-            return string.Join(" - ", propertyValue.Replace(' ', '_').ToUpper().Split(',').Select(x => "{" + x + "}"));
+            string newValue = "";
+            newValue = string.Join(" - ", propertyValue.Replace(' ', '_').ToUpper().Split(','));
+            return newValue;
         }
 
         public Event()
