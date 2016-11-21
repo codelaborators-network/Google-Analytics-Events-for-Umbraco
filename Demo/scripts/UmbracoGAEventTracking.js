@@ -7,11 +7,11 @@
 
     // Methods
     function sendGaEvent(eventCategory, action, eventLabel) {
-        //ga('send', 'event', eventCategory, action, eventLabel);
-        console.log(
-            "Category: " + eventCategory
-            + ", Action : " + action
-            + ", Label : " + eventLabel);
+        ga('send', 'event', eventCategory, action, eventLabel);
+        //console.log(
+        //    "Category: " + eventCategory
+        //    + ", Action : " + action
+        //    + ", Label : " + eventLabel);
     }
     function httpGetAsync(theUrl, successCallback, failCallback) {
         var xmlHttp = new XMLHttpRequest();
