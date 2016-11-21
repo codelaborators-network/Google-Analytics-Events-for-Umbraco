@@ -7,7 +7,6 @@
 
     // Methods
     function sendGaEvent(eventCategory, action, eventLabel) {
-        // TODO
         //ga('send', 'event', eventCategory, action, eventLabel);
         console.log(
             "Category: " + eventCategory

@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Umbraco GA Event Tracking")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Codelaborators-Network")]
 [assembly: AssemblyProduct("Umbraco GA Event Tracking")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCopyright("Copyright ©  2016 Luke Warren and Paul Seal")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
