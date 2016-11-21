@@ -5,10 +5,12 @@ A package for adding manageable GA Event Tracking to your Umbraco site.
 
 ## Install
 
-1. Install the Google Analytics Events for Umbraco package (we are still working on the first release)
+1. Install the Google Analytics Events for Umbraco package
 2. Add the Following code to your master template (order is important)
 
 ```javascript
+
+@using UmbracoGAEventTracking;
 
 @Html.IncludeGoogleAnalytics() // Only needed if you have not already included Google Analytics. You can add your GA Key in Umbraco.
 @Html.IncludeGaEventTracking()

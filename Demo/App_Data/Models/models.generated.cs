@@ -19,7 +19,7 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "fe3c70b6856890fe")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "13f4e1c1f9afad19")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 namespace Umbraco.Web.PublishedContentModels
@@ -290,7 +290,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Advanced Event</summary>
 	[PublishedContentModel("googleAnalyticsEventItem")]
-	public partial class GoogleAnalyticsEventItem : PublishedContentModel
+	public partial class GoogleAnalyticsEventItem : PublishedContentModel, IGoogleAnalyticsEventBase
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "googleAnalyticsEventItem";
@@ -323,12 +323,21 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Label: The label to use for the GA event. Please note that this is templatable. Simple enter one of the following placeholders and it will be replaced by the appropriate value when the vent takes place: PageUrl: {PAGE_URL}, PageRelativeUrl: {PAGE_RELATIVE_URL}, TagName: {TAG_NAME}, ID: {ID} , Class: {CLASS}, Value: {VALUE}, Src: {SRC}, LinkUrl: {LINK_URL}, LinkRelativeUrl: {LINK_RELATIVE_URL}, Alt: {ALT}, Title: {TITLE}, InnerHTML: {INNER_HTML}
+		///</summary>
+		[ImplementPropertyType("googleAnalyticsEvent_Label")]
+		public string GoogleAnalyticsEvent_Label
+		{
+			get { return this.GetPropertyValue<string>("googleAnalyticsEvent_Label"); }
+		}
+
+		///<summary>
 		/// Category: The category the event should be classified in the Google Analytics dashboard
 		///</summary>
 		[ImplementPropertyType("googleAnalyticsEvent_Category")]
 		public string GoogleAnalyticsEvent_Category
 		{
-			get { return this.GetPropertyValue<string>("googleAnalyticsEvent_Category"); }
+			get { return GoogleAnalyticsEventBase.GetGoogleAnalyticsEvent_Category(this); }
 		}
 
 		///<summary>
@@ -337,22 +346,13 @@ namespace Umbraco.Web.PublishedContentModels
 		[ImplementPropertyType("googleAnalyticsEvent_CssSelector")]
 		public string GoogleAnalyticsEvent_CssSelector
 		{
-			get { return this.GetPropertyValue<string>("googleAnalyticsEvent_CssSelector"); }
-		}
-
-		///<summary>
-		/// Label: The label to use for the GA event. Please note that this is templatable. Simple enter one of the following placeholders and it will be replaced by the appropriate value when the vent takes place: PageUrl: {PAGE_URL}, PageRelativeUrl: {PAGE_RELATIVE_URL}, TagName: {TAG_NAME}, ID: {ID} , Class: {CLASS}, Value: {VALUE}, Src: {SRC}, LinkUrl: {LINK_URL}, LinkRelativeUrl: {LINK_RELATIVE_URL}, Alt: {ALT}, Title: {TITLE}, InnerHTML: {INNER_HTML}
-		///</summary>
-		[ImplementPropertyType("googleAnalyticsEvent_Label")]
-		public string GoogleAnalyticsEvent_Label
-		{
-			get { return this.GetPropertyValue<string>("googleAnalyticsEvent_Label"); }
+			get { return GoogleAnalyticsEventBase.GetGoogleAnalyticsEvent_CssSelector(this); }
 		}
 	}
 
 	/// <summary>Standard Event</summary>
 	[PublishedContentModel("googleAnalyticsStandardEvent")]
-	public partial class GoogleAnalyticsStandardEvent : PublishedContentModel
+	public partial class GoogleAnalyticsStandardEvent : PublishedContentModel, IGoogleAnalyticsEventBase
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "googleAnalyticsStandardEvent";
@@ -385,12 +385,21 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Label: Choose which information you would like to appear in the label in Google Analytics. If you want more control of this, create a Google Analytics Advanced Event instead.
+		///</summary>
+		[ImplementPropertyType("googleAnalyticsEvent_Label")]
+		public object GoogleAnalyticsEvent_Label
+		{
+			get { return this.GetPropertyValue("googleAnalyticsEvent_Label"); }
+		}
+
+		///<summary>
 		/// Category: The category the event should be classified in the Google Analytics dashboard
 		///</summary>
 		[ImplementPropertyType("googleAnalyticsEvent_Category")]
 		public string GoogleAnalyticsEvent_Category
 		{
-			get { return this.GetPropertyValue<string>("googleAnalyticsEvent_Category"); }
+			get { return GoogleAnalyticsEventBase.GetGoogleAnalyticsEvent_Category(this); }
 		}
 
 		///<summary>
@@ -399,17 +408,69 @@ namespace Umbraco.Web.PublishedContentModels
 		[ImplementPropertyType("googleAnalyticsEvent_CssSelector")]
 		public string GoogleAnalyticsEvent_CssSelector
 		{
-			get { return this.GetPropertyValue<string>("googleAnalyticsEvent_CssSelector"); }
+			get { return GoogleAnalyticsEventBase.GetGoogleAnalyticsEvent_CssSelector(this); }
+		}
+	}
+
+	// Mixin content Type 1112 with alias "googleAnalyticsEventBase"
+	/// <summary>Event Base</summary>
+	public partial interface IGoogleAnalyticsEventBase : IPublishedContent
+	{
+		/// <summary>Category</summary>
+		string GoogleAnalyticsEvent_Category { get; }
+
+		/// <summary>CSS Selector</summary>
+		string GoogleAnalyticsEvent_CssSelector { get; }
+	}
+
+	/// <summary>Event Base</summary>
+	[PublishedContentModel("googleAnalyticsEventBase")]
+	public partial class GoogleAnalyticsEventBase : PublishedContentModel, IGoogleAnalyticsEventBase
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "googleAnalyticsEventBase";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public GoogleAnalyticsEventBase(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<GoogleAnalyticsEventBase, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
 
 		///<summary>
-		/// Label: Choose which information you would like to appear in the label in Google Analytics. If you want more control of this, create a Google Analytics Advanced Event instead.
+		/// Category: The category the event should be classified in the Google Analytics dashboard
 		///</summary>
-		[ImplementPropertyType("googleAnalyticsEvent_Label")]
-		public object GoogleAnalyticsEvent_Label
+		[ImplementPropertyType("googleAnalyticsEvent_Category")]
+		public string GoogleAnalyticsEvent_Category
 		{
-			get { return this.GetPropertyValue("googleAnalyticsEvent_Label"); }
+			get { return GetGoogleAnalyticsEvent_Category(this); }
 		}
+
+		/// <summary>Static getter for Category</summary>
+		public static string GetGoogleAnalyticsEvent_Category(IGoogleAnalyticsEventBase that) { return that.GetPropertyValue<string>("googleAnalyticsEvent_Category"); }
+
+		///<summary>
+		/// CSS Selector: The CSS selector that will be used to attach the GA event to the element. Example: ".someClass", "#some-id", "h1"
+		///</summary>
+		[ImplementPropertyType("googleAnalyticsEvent_CssSelector")]
+		public string GoogleAnalyticsEvent_CssSelector
+		{
+			get { return GetGoogleAnalyticsEvent_CssSelector(this); }
+		}
+
+		/// <summary>Static getter for CSS Selector</summary>
+		public static string GetGoogleAnalyticsEvent_CssSelector(IGoogleAnalyticsEventBase that) { return that.GetPropertyValue<string>("googleAnalyticsEvent_CssSelector"); }
 	}
 
 	/// <summary>Folder</summary>
