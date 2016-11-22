@@ -4,7 +4,7 @@ using Umbraco.Core.Logging;
 using Umbraco.Core.Models;
 using Umbraco.Web.UI.Controls;
 
-namespace UmbracoGAEventTracking.GAEventTracking
+namespace UmbracoGAEventTracking.GAEventTracking.BackOffice
 {
     public class Installer : UmbracoUserControl
     {
@@ -33,7 +33,7 @@ namespace UmbracoGAEventTracking.GAEventTracking
             }
 
             LogHelper.Info<Installer>("Publishing GA Event Root");
-            Services.ContentService.SaveAndPublishWithStatus(root);
+            Services.ContentService.PublishWithChildrenWithStatus(root);
 
             LogHelper.Info<Installer>("Getting GA Events");
             var children = root.Children().ToArray();

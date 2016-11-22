@@ -1,13 +1,14 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UmbracoGAEventTracking.GAEventTracking.Installer" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UmbracoGAEventTracking.GAEventTracking.BackOffice.Installer" %>
 <h2>Google Analytics Events for Umbraco has been successfully installed!
 </h2>
 
 <p>
-    You are nearly up and running. All you need to do now is include the following code AFTER your Google Analytics registration script.
+    You are nearly up and running.
 </p>
-
+<p>
+    All you need to do now is include the following code AFTER your Google Analytics registration script.
+</p>
 <pre>
-    @using UmbracoGAEventTracking
     @Html.IncludeGaEventTracking()
 </pre>
 
@@ -17,7 +18,7 @@
     </a>
 </p>
 
-<h3>Pre-installed Events (optional)
+<h3>Pre-installed Events
 </h3>
 
 <p>

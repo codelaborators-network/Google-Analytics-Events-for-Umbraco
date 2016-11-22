@@ -300,6 +300,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\GAEventTracking\BackOffice\Installer.ascx" />
     <Content Include="App_Plugins\DictionaryDropdown\js\dictionaryDropdown.js" />
     <Content Include="App_Plugins\DictionaryDropdown\views\dictionaryDropdown.html" />
     <Content Include="App_Plugins\DictionaryDropdown\views\dictionaryDropdown.items.html" />
@@ -396,6 +397,12 @@
     <Content Include="App_Code\GAEventTracking\RegisterEvents.cs" />
     <Content Include="App_Code\GAEventTracking\EventContentHelper.cs" />
     <Content Include="App_Code\GAEventTracking\Controllers\GAEventTrackingController.cs" />
+    <Content Include="App_Code\GAEventTracking\Installer.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="App_Code\GAEventTracking\BackOffice\Installer.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
