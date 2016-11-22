@@ -290,6 +290,9 @@
     <Content Include="Scripts\UmbracoGAEventTracking.js" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\GAEventTracking\Installer.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="App_Code\GAEventTracking\HtmlExtensions.cs" />
     <Content Include="App_Code\GAEventTracking\EventContentHelper.cs" />
     <Content Include="App_Code\GAEventTracking\Event.cs" />
@@ -299,6 +302,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="usercontrols\Installer.ascx" />
     <Content Include="web.config" />
     <Content Include="App_Plugins\DictionaryDropdown\package.manifest" />
     <Content Include="Views\GoogleAnalyticsDefaultTemplate.cshtml" />
