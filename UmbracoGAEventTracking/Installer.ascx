@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UmbracoGAEventTracking.GAEventTracking.BackOffice.Installer" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="GAEventTracking.BackOffice.Installer" %>
 <h2>Google Analytics Events for Umbraco has been successfully installed.
 </h2>
 

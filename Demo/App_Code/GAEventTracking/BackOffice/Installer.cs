@@ -3,8 +3,9 @@ using System.Linq;
 using Umbraco.Core.Logging;
 using Umbraco.Core.Models;
 using Umbraco.Web.UI.Controls;
+using UmbracoGAEventTracking;
 
-namespace UmbracoGAEventTracking.GAEventTracking.BackOffice
+namespace GAEventTracking.BackOffice
 {
     public class Installer : UmbracoUserControl
     {

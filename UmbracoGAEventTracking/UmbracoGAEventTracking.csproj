@@ -279,10 +279,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\GAEventTracking\BackOffice\Installer.ascx" />
     <Content Include="App_Plugins\DictionaryDropdown\js\dictionaryDropdown.js" />
     <Content Include="App_Plugins\DictionaryDropdown\views\dictionaryDropdown.html" />
     <Content Include="App_Plugins\DictionaryDropdown\views\dictionaryDropdown.items.html" />
+    <Content Include="Installer.ascx" />
     <Content Include="packages.config" />
     <Content Include="Partials\_GAEventTracking.cshtml" />
     <Content Include="Partials\_GoogleAnalytics.cshtml" />
@@ -347,12 +347,12 @@
   </Target>
   <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /E /Y /S /D "$(ProjectDir)Partials\*.cshtml" "$(SolutionDir)Demo\Views\Partials"
-xcopy /E /Y /S /D "$(ProjectDir)App_Code\*.cs" "$(SolutionDir)Demo\App_Code"
-xcopy /E /Y /S /D "$(ProjectDir)App_Code\*.ascx" "$(SolutionDir)Demo\App_Code"
-xcopy /E /Y /S /D "$(ProjectDir)App_Plugins\*" "$(SolutionDir)Demo\App_Plugins"
-xcopy /E /Y /S /D "$(ProjectDir)Scripts\*.js" "$(SolutionDir)Demo\Scripts"
-xcopy /E /Y /S /D "$(ProjectDir)Views\*.cshtml" "$(SolutionDir)Demo\Views"</PostBuildEvent>
+    <PostBuildEvent>xcopy /Y /S /D "$(ProjectDir)Partials\*.cshtml" "$(SolutionDir)Demo\Views\Partials"
+xcopy /Y /S /D "$(ProjectDir)App_Code\*.cs" "$(SolutionDir)Demo\App_Code"
+xcopy /Y /S /D "$(ProjectDir)App_Plugins\*" "$(SolutionDir)Demo\App_Plugins"
+xcopy /Y /S /D "$(ProjectDir)Scripts\*.js" "$(SolutionDir)Demo\Scripts"
+xcopy /Y /S /D "$(ProjectDir)Views\*.cshtml" "$(SolutionDir)Demo\Views"
+xcopy /Y /D "$(ProjectDir)Installer.ascx" "$(SolutionDir)Demo\usercontrols\*"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
