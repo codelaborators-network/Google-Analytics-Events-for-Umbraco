@@ -1,0 +1,30 @@
+﻿{
+    propertyEditors: [
+        {
+            alias: "Our.Umbraco.DictionaryDropdown",
+            name:  "Google Analytics Dictionary Dropdown",
+            editor: {
+                view: "~/App_Plugins/DictionaryDropdown/views/dictionaryDropdown.html",
+                valueType: "STRING"
+            },
+            prevalues: {
+                fields: [
+                    {
+                        label: "Items",
+                        description: "Add or remove items for this list.",
+                        key: "items",
+                        view: "/App_Plugins/DictionaryDropdown/views/dictionaryDropdown.items.html",
+                        validation: [
+                            {
+                                type: "Required"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    javascript: [
+        '~/App_Plugins/DictionaryDropdown/js/dictionaryDropdown.js'
+    ]
+}

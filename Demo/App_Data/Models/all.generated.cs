@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "13f4e1c1f9afad19")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "e8a088f386e0a3bb")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
 // FILE: models.generated.cs
@@ -332,10 +332,10 @@ namespace Umbraco.Web.PublishedContentModels
 		///<summary>
 		/// Action: The action type that you are listening for on the element. Example: The "click" action will fire when an element is clicked
 		///</summary>
-		[ImplementPropertyType("googleAnalyticsEvent_Action")]
-		public object GoogleAnalyticsEvent_Action
+		[ImplementPropertyType("action")]
+		public object Action
 		{
-			get { return this.GetPropertyValue("googleAnalyticsEvent_Action"); }
+			get { return this.GetPropertyValue("action"); }
 		}
 
 		///<summary>
@@ -394,19 +394,19 @@ namespace Umbraco.Web.PublishedContentModels
 		///<summary>
 		/// Action: The action type that you are listening for on the element. Example: The "click" action will fire when an element is clicked
 		///</summary>
-		[ImplementPropertyType("googleAnalyticsEvent_Action")]
-		public object GoogleAnalyticsEvent_Action
+		[ImplementPropertyType("action")]
+		public object Action
 		{
-			get { return this.GetPropertyValue("googleAnalyticsEvent_Action"); }
+			get { return this.GetPropertyValue("action"); }
 		}
 
 		///<summary>
 		/// Label: Choose which information you would like to appear in the label in Google Analytics. If you want more control of this, create a Google Analytics Advanced Event instead.
 		///</summary>
-		[ImplementPropertyType("googleAnalyticsEvent_Label")]
-		public object GoogleAnalyticsEvent_Label
+		[ImplementPropertyType("label")]
+		public object Label
 		{
-			get { return this.GetPropertyValue("googleAnalyticsEvent_Label"); }
+			get { return this.GetPropertyValue("label"); }
 		}
 
 		///<summary>

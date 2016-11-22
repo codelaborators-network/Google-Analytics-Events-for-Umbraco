@@ -300,6 +300,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\DictionaryDropdown\js\dictionaryDropdown.js" />
+    <Content Include="App_Plugins\DictionaryDropdown\views\dictionaryDropdown.html" />
+    <Content Include="App_Plugins\DictionaryDropdown\views\dictionaryDropdown.items.html" />
+    <Content Include="App_Plugins\Grid\Config\FanoeConfig.txt" />
+    <Content Include="App_Plugins\Grid\Editors\Views\media_with_description.html" />
+    <Content Include="App_Plugins\Grid\Editors\Views\quote_with_description.html" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\fanoe.css" />
     <Content Include="css\rte.css" />
@@ -342,6 +348,13 @@
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\Master.cshtml" />
     <Content Include="Views\TextPage.cshtml" />
+    <Content Include="App_Plugins\Grid\Editors\Render\embed_videowrapper.cshtml" />
+    <Content Include="App_Plugins\Grid\Editors\Render\media_round.cshtml" />
+    <Content Include="App_Plugins\Grid\Editors\Render\media_text_right.cshtml" />
+    <Content Include="App_Plugins\Grid\Editors\Render\media_wide.cshtml" />
+    <Content Include="App_Plugins\Grid\Editors\Render\quote_with_description.cshtml" />
+    <Content Include="App_Plugins\DictionaryDropdown\package.manifest" />
+    <Content Include="Views\GoogleAnalyticsDefaultTemplate.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
