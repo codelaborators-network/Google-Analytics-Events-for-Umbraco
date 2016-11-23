@@ -11,7 +11,7 @@
   </head>
   <body>
     <section class="page-header">
-      <h1 class="project-name">Umbraco GA Event Tracking</h1>
+      <h1 class="project-name">Google Analytics Events for Umbraco</h1>
       <h2 class="project-tagline">A package for adding manageable Google Analytics Event Tracking to your Umbraco site</h2>
       <a href="https://github.com/codelaborators-network/Umbraco-GA-Event-Tracking" class="btn">View on GitHub</a>
       <a href="https://github.com/codelaborators-network/Umbraco-GA-Event-Tracking/zipball/master" class="btn">Download .zip</a>
@@ -20,9 +20,10 @@
 
     <section class="main-content">
       <h1>
-<a id="umbraco-google-analytics-events-tracking" class="anchor" href="#umbraco-google-analytics-events-tracking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Umbraco Google Analytics Events Tracking</h1>
+<a id="umbraco-google-analytics-events-tracking" class="anchor" href="#umbraco-google-analytics-events-tracking" aria-hidden="true">
+  <span aria-hidden="true" class="octicon octicon-link"></span></a>Google Analytics Events for Umbraco</h1>
 
-<p><img src="https://github.com/codelaborators-network/Umbraco-GA-Event-Tracking/blob/master/umbraco-ga-event-tracking.jpg?raw=true" alt="PasswordGenerator Logo" title="Umbraco GA Event Tracking Logo"></p>
+<p><img src="https://github.com/codelaborators-network/Google-Analytics-Events-for-Umbraco/raw/master/Logos/logo_200_200.jpg?raw=true" alt="PasswordGenerator Logo" title="Umbraco GA Event Tracking Logo"></p>
 
 <p>A package for adding manageable GA Event Tracking to your Umbraco site.</p>
 
@@ -30,33 +31,198 @@
 <a id="install" class="anchor" href="#install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install</h2>
 
 <ol>
-<li>Install the Umbraco-GA-Event-Tracking package</li>
-<li>Include the event tracking script via the Html Helper anywhere AFTER you have included Google Analytics in your master template page.</li>
+<li>Install the Google Analytics Events for Umbraco package</li>
+<li>Include the event tracking script via the HTML helper anywhere AFTER you have included Google Analytics in your master template page.</li>
 </ol>
+
+<h3>
+<a id="adding-using" class="anchor" href="#adding-using" aria-hidden="true">
+  <span aria-hidden="true" class="octicon octicon-link"></span>
+  </a>Adding Using Statement</h3>
+</h3>
+<p>Make sure to add a using to access the HTML helpers. Typically you do this at the top of the razor template</p>
+<div class="highlight highlight-source-js"><pre>@<span class="pl-en">using UmbracoGAEventTracking</span></pre></div>
 
 <h3>
 <a id="including-google-analytics" class="anchor" href="#including-google-analytics" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Including Google Analytics</h3>
 
-<p>For your convenience, we have a handy helper available for outputting the GA script. You do not have to use this method if you have already included GA but if you do, make sure to set your API key.</p>
+<p>
+  For your convenience, we have a handy HTML helper available for outputting the Google Analytics script.
+</p>
 
-<blockquote>
-<p>Set your API key in the properties of the Event Tracking content node</p>
-</blockquote>
+<p>
+ You do not have to use this method if you have already included Google Analytics included but if you do, make sure to set your API key.
+</p>
+
 
 <div class="highlight highlight-source-js"><pre>@<span class="pl-smi">Html</span>.<span class="pl-en">IncludeGoogleAnalytics</span>()</pre></div>
+
+<blockquote>
+<p>Set your API key in the properties of the Root Event Tracking content node</p>
+</blockquote>
 
 <h2>
 <a id="including-the-tracking-script" class="anchor" href="#including-the-tracking-script" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Including the Tracking Script</h2>
 
-<p>As above, just add this bit of razor code anywhere after you include GA in your master template</p>
+<p>Next, just add this bit of razor code anywhere AFTER you include GA in your master template</p>
 
 <div class="highlight highlight-source-js"><pre>@<span class="pl-smi">Html</span>.<span class="pl-en">IncludeGaEventTracking</span>()</pre></div>
 
 <h2>
 <a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to Use</h2>
 
+<p>
+  After installing the package you will see that we have added a whole bunch of events for you
+</p>
+<p>
+  Feel free to delete these if you wish, they are just there to help you get going.
+</p>
 <h3>
-<a id="coming-soon" class="anchor" href="#coming-soon" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Coming soon</h3>
+  Standard Events
+</h3>
+
+<p>
+  These events are aimed at making the process easier for simple events that don't require a huge amount of configuration
+</p>
+<p>
+  Using stardard events makes things quicker and easier but give you less control over the label and less actions to choose from
+</p>
+
+<p>
+  90 % of the time we only expect you to need standard events
+</p>
+
+<h3>
+  Advanced Events
+</h3>
+
+<p>
+  These events are for when you need more control
+</p>
+
+<p>
+  The label field lets you specify a template string to use. For example, "My label string {PAGE_URL}"
+</p>
+<p>
+  Below are all the placeholder tokens that can be used. When an event happens, the token value will be replaced with the appropriate values
+</p>
+
+<blockquote>
+  Labels are handled in the exact same way in standard events. You just use a checkbox list to select your placeholder tokens instead of having to manually type them.
+</blockquote>
+<h4>Label Placeholders</h4>
+<table>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Placeholder
+      </th>
+      <th>
+        Description
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        Page Url
+      </td>
+      <td>
+        {PAGE_URL}
+      </td>
+      <td>
+        Replaced by the current page URL
+      </td>
+    </tr>
+    <tr>
+      <td>PageRelativeUrl</td>
+      <td>{PAGE_RELATIVE_URL}</td>
+      <td>Replaced by the page's relative URL</td>
+    </tr>
+    <tr>
+      <td>TagName</td>
+      <td>{TAG_NAME}</td>
+      <td>Replaced by the name of the tag clicked</td>
+    </tr>
+    <tr>
+      <td>ID</td>
+      <td>{ID}</td>
+      <td>Replaced by the ID of the element. Empty string if no ID set</td>
+    </tr>
+    <tr>
+      <td>Class</td>
+      <td>{CLASS}</td>
+      <td>Replaced by the class set on the element. Empty string if none set</td>
+    </tr>
+    <tr>
+      <td>Value</td>
+      <td>{VALUE}</td>
+      <td>Replaced by the value of the element clicked</td>
+    </tr>
+    <tr>
+      <td>Source</td>
+      <td>{SRC}</td>
+      <td>Replaced with Src value of the element if appropriate</td>
+    </tr>
+    <tr>
+      <td>Link URL</td>
+      <td>{LINK_URL}</td>
+      <td>Replaced by the href URL set on an anchor tag</td>
+    </tr>
+    <tr>
+      <td>Link Relative Url</td>
+      <td>{LINK_RELATIVE_URL}</td>
+      <td>Replaced by the href relative URL set on an anchor tag</td>
+    </tr>
+    <tr>
+      <td>Alt</td>
+      <td>{ALT}</td>
+      <td>Replaced by alt value of element</td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>{TITLE}</td>
+      <td>Replaced by title value of element</td>
+    </tr>
+    <tr>
+      <td>Inner HTML</td>
+      <td>{INNER_HTML}</td>
+      <td>Replaced by the inner HTML of the element</td>
+    </tr>
+  </tbody>
+</table>
+
+<em>
+  Need another placeholder token? <a href="https://github.com/codelaborators-network/Google-Analytics-Events-for-Umbraco/issues" target="_blank">Create an issue</a> 
+</em>
+
+<h2>
+<a id="who-made-this" class="anchor" href="#who-made-this" aria-hidden="true">
+  <span aria-hidden="true" class="octicon octicon-link"></span>
+  </a>Who Made This?
+</h2>
+
+<p>This package was lovingly created by <a href="http://lukewarrendev.co.za" target="_blank">Luke Warren</a> and <a href="http://codeshare.co.uk" target="_blank">Paul Seal</a></p>
+
+<h3>Special Thanks To</h3>
+
+
+<div>
+  <a href="http://syncrony.com/" target="_blank">
+    <img src="http://syncrony.com/Portals/0/Images/SyncLogo.png" alt="Syncrony logo" />
+  </a>
+  <p>
+    <a href="http://syncrony.com/" target="_blank">Syncrony</a> specialises in custom web development, and having constructed many large and small solutions over the years, including: Websites, Intranets, Help Desks and ERP systems, we can develop a solution to fit your needs.
+  </p>
+</div>
+
+
+and
+
+<p><a href="http://www.mediamaker.co.uk/">MEDIAmaker</a> is a multi-channel communications agency that exists to help organisations communicate their messages to customers, employees and partners. They are based in Nottingham and London in the UK with clients worldwide.</p>
 
 <h2>
 <a id="how-do-i-contribute" class="anchor" href="#how-do-i-contribute" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How do I Contribute?</h2>
