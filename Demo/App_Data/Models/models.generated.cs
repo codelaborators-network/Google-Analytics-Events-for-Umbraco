@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "e8a088f386e0a3bb")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "44e92a5e93598a18")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.5")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -323,7 +323,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Label: The label to use for the GA event. Please note that this is templatable. Simple enter one of the following placeholders and it will be replaced by the appropriate value when the vent takes place: PageUrl: {PAGE_URL}, PageRelativeUrl: {PAGE_RELATIVE_URL}, TagName: {TAG_NAME}, ID: {ID} , Class: {CLASS}, Value: {VALUE}, Src: {SRC}, LinkUrl: {LINK_URL}, LinkRelativeUrl: {LINK_RELATIVE_URL}, Alt: {ALT}, Title: {TITLE}, InnerHTML: {INNER_HTML}
+		/// Label: The label to use for the GA event.{br /}{br /} Please note that this is templatable. Simple enter one of the following placeholders and it will be replaced by the appropriate value when the vent takes place: {br /}{br /}PageUrl: {PAGE_URL}, PageRelativeUrl: {PAGE_RELATIVE_URL}, TagName: {TAG_NAME}, ID: {ID} , Class: {CLASS}, Value: {VALUE}, Src: {SRC}, LinkUrl: {LINK_URL}, LinkRelativeUrl: {LINK_RELATIVE_URL}, Alt: {ALT}, Title: {TITLE}, InnerHTML: {INNER_HTML}. {br /}{br /} Still confused? {a href="https://codelaborators-network.github.io/Google-Analytics-Events-for-Umbraco/" target="_blank" title="Opens in new tab"}Check out the documentation for more detailed guides{/a}
 		///</summary>
 		[ImplementPropertyType("googleAnalyticsEvent_Label")]
 		public string GoogleAnalyticsEvent_Label
@@ -341,7 +341,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// CSS Selector: The CSS selector that will be used to attach the GA event to the element. Example: ".someClass", "#some-id", "h1"
+		/// CSS Selector: The CSS selector that will be used to attach the GA event to the element. Example: ".someClass", "#some-id", "h1"{br /}{br /} Don't know CSS? {a href="https://codelaborators-network.github.io/Google-Analytics-Events-for-Umbraco/" target="_blank" title="Opens in new tab"}Check out the documentation for more examples{/a}
 		///</summary>
 		[ImplementPropertyType("googleAnalyticsEvent_CssSelector")]
 		public string GoogleAnalyticsEvent_CssSelector
@@ -403,7 +403,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// CSS Selector: The CSS selector that will be used to attach the GA event to the element. Example: ".someClass", "#some-id", "h1"
+		/// CSS Selector: The CSS selector that will be used to attach the GA event to the element. Example: ".someClass", "#some-id", "h1"{br /}{br /} Don't know CSS? {a href="https://codelaborators-network.github.io/Google-Analytics-Events-for-Umbraco/" target="_blank" title="Opens in new tab"}Check out the documentation for more examples{/a}
 		///</summary>
 		[ImplementPropertyType("googleAnalyticsEvent_CssSelector")]
 		public string GoogleAnalyticsEvent_CssSelector
@@ -461,7 +461,7 @@ namespace Umbraco.Web.PublishedContentModels
 		public static string GetGoogleAnalyticsEvent_Category(IGoogleAnalyticsEventBase that) { return that.GetPropertyValue<string>("googleAnalyticsEvent_Category"); }
 
 		///<summary>
-		/// CSS Selector: The CSS selector that will be used to attach the GA event to the element. Example: ".someClass", "#some-id", "h1"
+		/// CSS Selector: The CSS selector that will be used to attach the GA event to the element. Example: ".someClass", "#some-id", "h1"{br /}{br /} Don't know CSS? {a href="https://codelaborators-network.github.io/Google-Analytics-Events-for-Umbraco/" target="_blank" title="Opens in new tab"}Check out the documentation for more examples{/a}
 		///</summary>
 		[ImplementPropertyType("googleAnalyticsEvent_CssSelector")]
 		public string GoogleAnalyticsEvent_CssSelector

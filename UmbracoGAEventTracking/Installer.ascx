@@ -30,7 +30,7 @@
 </h3>
 
 <p>
-    <a href="https://codelaborators-network.github.io/Google-Analytics-Events-for-Umbraco/">Check out the documentation
+    <a href="https://codelaborators-network.github.io/Google-Analytics-Events-for-Umbraco/" target="_blank" title="Opens in new tab">Check out the documentation
     </a>for more detailed guides
 </p>
 
