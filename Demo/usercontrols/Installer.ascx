@@ -19,6 +19,17 @@
     @using UmbracoGAEventTracking
 </pre>
 
+<h4>Include Google Analytics
+</h4>
+
+<p>
+    Skip if you already have Google Analytics
+</p>
+
+<pre>
+    @Html.IncludeGoogleAnalytics()
+</pre>
+
 <h4>Include Google Analytics Events:
 </h4>
 
