@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "44e92a5e93598a18")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.5")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "35a35fe18e0d023a")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -316,10 +316,10 @@ namespace Umbraco.Web.PublishedContentModels
 		///<summary>
 		/// Action: The action type that you are listening for on the element. Example: The "click" action will fire when an element is clicked
 		///</summary>
-		[ImplementPropertyType("action")]
-		public object Action
+		[ImplementPropertyType("googleAnalyticsEvent_Action")]
+		public object GoogleAnalyticsEvent_Action
 		{
-			get { return this.GetPropertyValue("action"); }
+			get { return this.GetPropertyValue("googleAnalyticsEvent_Action"); }
 		}
 
 		///<summary>
@@ -378,19 +378,19 @@ namespace Umbraco.Web.PublishedContentModels
 		///<summary>
 		/// Action: The action type that you are listening for on the element. Example: The "click" action will fire when an element is clicked
 		///</summary>
-		[ImplementPropertyType("action")]
-		public object Action
+		[ImplementPropertyType("googleAnalyticsEvent_Action")]
+		public object GoogleAnalyticsEvent_Action
 		{
-			get { return this.GetPropertyValue("action"); }
+			get { return this.GetPropertyValue("googleAnalyticsEvent_Action"); }
 		}
 
 		///<summary>
 		/// Label: Choose which information you would like to appear in the label in Google Analytics. If you want more control of this, create a Google Analytics Advanced Event instead.
 		///</summary>
-		[ImplementPropertyType("label")]
-		public object Label
+		[ImplementPropertyType("googleAnalyticsEvent_Label")]
+		public object GoogleAnalyticsEvent_Label
 		{
-			get { return this.GetPropertyValue("label"); }
+			get { return this.GetPropertyValue("googleAnalyticsEvent_Label"); }
 		}
 
 		///<summary>
