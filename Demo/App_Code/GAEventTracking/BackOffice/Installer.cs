@@ -31,18 +31,11 @@ namespace GAEventTracking.BackOffice
             {
                 // If this happens, something is very wrong with the install
                 LogHelper.Info<Installer>("Could not get GA Event Root!");
+                return;
             }
 
-            LogHelper.Info<Installer>("Publishing GA Event Root");
+            LogHelper.Info<Installer>("Publishing GA Event Root with children");
             Services.ContentService.PublishWithChildrenWithStatus(root);
-
-            LogHelper.Info<Installer>("Getting GA Events");
-            var children = root.Children().ToArray();
-            foreach (var gaEvent in children)
-            {
-                LogHelper.Info<Installer>("Publishing events");
-                Services.ContentService.SaveAndPublishWithStatus(gaEvent);
-            }
         }
 
         private IContent GetRoot()
@@ -50,12 +43,15 @@ namespace GAEventTracking.BackOffice
             IContentType rootType = GetRootType();
 
             if (rootType == null)
+            {
+                LogHelper.Info<Installer>("Could not get Root type!");
                 return null;
+            }
 
             LogHelper.Info<Installer>("Getting GA Event root content");
             return Services.ContentService
-                               .GetContentOfContentType(rootType.Id)
-                               .FirstOrDefault();
+                           .GetContentOfContentType(rootType.Id)
+                           .FirstOrDefault();
         }
     }
 }
