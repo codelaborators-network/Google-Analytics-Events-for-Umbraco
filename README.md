@@ -17,5 +17,5 @@ A package for adding manageable GA Event Tracking to your Umbraco site.
 
 ```
 
-### Please read the [Documentation Website](https://github.com/codelaborators-network/Google-Analytics-Events-for-Umbraco) for more in depth guidelines
+### Please read the [Documentation Website](https://codelaborators-network.github.io/Google-Analytics-Events-for-Umbraco/) for more in depth guidelines
 
