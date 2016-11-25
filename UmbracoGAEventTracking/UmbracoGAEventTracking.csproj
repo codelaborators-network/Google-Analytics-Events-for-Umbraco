@@ -189,6 +189,9 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Caching">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Runtime.Caching.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -300,6 +303,7 @@
     <Content Include="App_Code\GAEventTracking\Keys.cs" />
     <Content Include="App_Code\GAEventTracking\RegisterEvents.cs" />
     <Content Include="App_Code\GAEventTracking\Controllers\GAEventTrackingController.cs" />
+    <Content Include="App_Code\GAEventTracking\Caching.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -32,6 +32,14 @@ namespace UmbracoGAEventTracking
 
         public List<Event> GetEvents()
         {
+            int cachingTimeInMinutes = GetCachingTimeInMinutes();
+            return cachingTimeInMinutes > 0
+                ? Caching.GetObjectFromCache<List<Event>>("events", GetCachingTimeInMinutes(), GetEventsFromDatabase)
+                : GetEventsFromDatabase();
+        }
+
+        public List<Event> GetEventsFromDatabase()
+        {
             var eventRootNode = GetGAEventRoot();
             if (eventRootNode != null)
             {
@@ -44,12 +52,30 @@ namespace UmbracoGAEventTracking
 
         private IPublishedContent GetGAEventRoot()
         {
+            int cachingTimeInMinutes = GetCachingTimeInMinutes();
+            return cachingTimeInMinutes > 0
+                ? Caching.GetObjectFromCache<IPublishedContent>("event_root", GetCachingTimeInMinutes(), GetGAEventRootFromDatabase)
+                : GetGAEventRootFromDatabase();
+        }
+
+        private IPublishedContent GetGAEventRootFromDatabase()
+        {
             if (_content == null)
                 return null;
 
             return _content.AncestorOrSelf(1)
                            .Siblings()
                            .FirstOrDefault(n => n.DocumentTypeAlias == Keys.DocumentTypes.GAEventTrackingRootAlias);
+        }
+
+        private int GetCachingTimeInMinutes()
+        {
+            int cacheTime = 0;
+            if (int.TryParse(System.Web.Configuration.WebConfigurationManager.AppSettings["GAEventTracking_CachingTimeInMinutes"], out cacheTime))
+            {
+                //cacheTime has been set
+            }
+            return cacheTime;
         }
     }
 }

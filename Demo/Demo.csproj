@@ -206,6 +206,9 @@
       <HintPath>..\packages\System.Reflection.Metadata.1.0.21\lib\portable-net45+win8\System.Reflection.Metadata.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Caching">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -391,18 +394,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\GAEventTracking\Event.cs" />
-    <Content Include="App_Code\GAEventTracking\HtmlExtensions.cs" />
-    <Content Include="App_Code\GAEventTracking\Keys.cs" />
-    <Content Include="App_Code\GAEventTracking\RegisterEvents.cs" />
-    <Content Include="App_Code\GAEventTracking\EventContentHelper.cs" />
-    <Content Include="App_Code\GAEventTracking\Controllers\GAEventTrackingController.cs" />
-    <Content Include="App_Code\GAEventTracking\Installer.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
     <Content Include="App_Code\GAEventTracking\BackOffice\Installer.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <Content Include="App_Code\GAEventTracking\Caching.cs" />
+    <Content Include="App_Code\GAEventTracking\Controllers\GAEventTrackingController.cs" />
+    <Content Include="App_Code\GAEventTracking\Event.cs" />
+    <Content Include="App_Code\GAEventTracking\EventContentHelper.cs" />
+    <Content Include="App_Code\GAEventTracking\HtmlExtensions.cs" />
+    <Content Include="App_Code\GAEventTracking\Keys.cs" />
+    <Content Include="App_Code\GAEventTracking\RegisterEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
