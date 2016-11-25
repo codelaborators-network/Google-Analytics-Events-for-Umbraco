@@ -17,5 +17,12 @@ A package for adding manageable GA Event Tracking to your Umbraco site.
 
 ```
 
+If you would like to use caching to save calls to the database, add this appSetting to your web.config file.
+
+```javascript
+
+<add key="GAEventTracking_CachingTimeInMinutes" value="10"/>
+
+```
 ### Please read the [Documentation Website](https://codelaborators-network.github.io/Google-Analytics-Events-for-Umbraco/) for more in depth guidelines
 
