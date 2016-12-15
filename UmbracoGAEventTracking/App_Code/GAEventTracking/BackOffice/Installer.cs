@@ -16,13 +16,6 @@ namespace GAEventTracking.BackOffice
             PublishContent();
         }
 
-        private IContentType GetRootType()
-        {
-            LogHelper.Info<Installer>("Getting GA Event root Document Type");
-            var rootType = Services.ContentTypeService.GetContentType(Keys.DocumentTypes.GAEventTrackingRootAlias);
-            return rootType;
-        }
-
         private void PublishContent()
         {
             var root = GetRoot();
@@ -34,8 +27,25 @@ namespace GAEventTracking.BackOffice
                 return;
             }
 
-            LogHelper.Info<Installer>("Publishing GA Event Root with children");
-            Services.ContentService.PublishWithChildrenWithStatus(root);
+            // Publish Root first
+            LogHelper.Info<Installer>("Publishing GA Event Root");
+            var rootPublishAttempt = Services.ContentService.SaveAndPublishWithStatus(root);
+            if (!rootPublishAttempt.Success)
+            {
+                LogHelper.Info<Installer>(string.Format("Could not publish GA Event Root. Exception message: {0}", rootPublishAttempt.Exception.Message));
+                return;
+            }
+
+            // Then, children because SaveAndPublishWithChildren doesnt seem to work
+            LogHelper.Info<Installer>("Publishing GA Events");
+            foreach (var child in root.Children())
+            {
+                var childrenPublishAttempt = Services.ContentService.SaveAndPublishWithStatus(child);
+                if (!childrenPublishAttempt.Success)
+                {
+                    LogHelper.Info<Installer>(string.Format("Could not publish GA Event. Exception message: {0}", childrenPublishAttempt.Exception.Message));
+                }
+            }
         }
 
         private IContent GetRoot()
@@ -52,6 +62,13 @@ namespace GAEventTracking.BackOffice
             return Services.ContentService
                            .GetContentOfContentType(rootType.Id)
                            .FirstOrDefault();
+        }
+
+        private IContentType GetRootType()
+        {
+            LogHelper.Info<Installer>("Getting GA Event root Document Type");
+            var rootType = Services.ContentTypeService.GetContentType(Keys.DocumentTypes.GAEventTrackingRootAlias);
+            return rootType;
         }
     }
 }
