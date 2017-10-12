@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Umbraco.Core.Models;
 using Umbraco.Web;
@@ -23,26 +24,20 @@ namespace UmbracoGAEventTracking
                 ? content.GetPropertyValue<string>(Keys.PropertyAliases.Title)
                 : content.Name;
             Action = content.GetPropertyValue<string>(Keys.PropertyAliases.Action);
-            Label = GetLabelValue(content.GetPropertyValue<string>(Keys.PropertyAliases.Label), content.DocumentTypeAlias);
+            Label = content.DocumentTypeAlias == Keys.DocumentTypes.GoogleAnalyticsAdvancedEventItem
+                ? content.GetPropertyValue<string>(Keys.PropertyAliases.Label)
+                : TranslateCheckboxValuesToPlaceholders(
+                    content.GetPropertyValue<IEnumerable<string>>(Keys.PropertyAliases.Label));
             Category = content.GetPropertyValue<string>(Keys.PropertyAliases.Category);
             CssSelector = content.GetPropertyValue<string>(Keys.PropertyAliases.CssSelector);
         }
 
-        private string GetLabelValue(string propertyValue, string docTypeAlias)
-        {
-            if(docTypeAlias == Keys.DocumentTypes.GoogleAnalyticsAdvancedEventItem)
-            {
-                return propertyValue;
-            }
-            else
-            {
-                return TranslateCheckboxValuesToPlaceholders(propertyValue);
-            }
-        }
 
-        private string TranslateCheckboxValuesToPlaceholders(string propertyValue)
+        private string TranslateCheckboxValuesToPlaceholders(IEnumerable<string> propertyValues)
         {
-            return string.Join(" - ", propertyValue.Replace(' ', '_').ToUpper().Split(',').Select(x => "{" + x + "}"));
+            var enumerable = propertyValues as string[] ?? propertyValues.ToArray();
+
+            return string.Join(" - ", enumerable.Select(x => x.Replace(" ", string.Empty) + ": " + "{" + x.Replace(" ", "_").ToUpper() + "}"));
         }
 
         public Event()
