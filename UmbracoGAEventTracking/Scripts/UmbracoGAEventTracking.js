@@ -4,10 +4,22 @@
     self.eventEndpoint = window.location.origin + "/Umbraco/GoogleAnalytics/GAEventTracking/GetEvents?eventRootId=" + nodeId;
     self.events = [];
     self.regex = regex;
+    self.dl = typeof (dataLayer) == 'undefined' ? [] : dataLayer; //test for dataLayer 
 
     // Methods
     function sendGaEvent(eventCategory, action, eventLabel) {
-        ga('send', 'event', eventCategory, action, eventLabel);
+
+        if (self.dl.length > 0) {
+            self.dl.push({
+                'event': 'GAEvent',
+                'eventCategory': eventCategory,
+                'eventAction': action,
+                'eventLabel': eventLabel
+            })
+        } else {
+            ga('send', 'event', eventCategory, action, eventLabel);    
+        }
+        
         //console.log(
         //    "Category: " + eventCategory
         //    + ", Action : " + action
